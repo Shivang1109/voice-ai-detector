@@ -2,8 +2,18 @@ from fastapi import FastAPI, Header
 import base64
 import joblib
 from features import extract_features
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # allow all websites
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Load trained model
 model = joblib.load("voice_model.pkl")
