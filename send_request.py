@@ -1,7 +1,7 @@
 import base64
 import requests
 
-url = "http://127.0.0.1:8000/api/voice-detection"
+url = "https://voice-ai-detector-lh2e.onrender.com/api/voice-detection"
 api_key = "SHIVANG123"   # must match main.py
 
 with open("sample.mp3", "rb") as f:
