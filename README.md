@@ -134,7 +134,7 @@ The API is deployed on Render (or your platform).
 
 Example:
 
-https://your-deployment-url.onrender.com/docs
+https://voice-ai-detector-lh2e.onrender.com/docs
 
 
 Interactive Swagger docs available at /docs.
