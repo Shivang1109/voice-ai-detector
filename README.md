@@ -1,8 +1,8 @@
 🎙️ Voice AI Detector — Human vs AI Speech Detection API
 
-A production-ready REST API that detects whether an audio sample is AI-generated (TTS / synthetic) or human speech using machine learning–based audio feature analysis.
+A production-ready REST API that detects whether an audio sample is AI-generated (TTS / synthetic) or human speech using machine-learning–based audio feature analysis.
 
-Built with an ML pipeline + FastAPI backend + secure API access, this system is designed for AI safety, scam detection, deepfake voice screening, and voice authenticity verification.
+Built with a complete ML pipeline + FastAPI backend + secure API access, this system is designed for AI safety, scam detection, deepfake voice screening, and voice authenticity verification.
 
 🚀 Features
 
@@ -10,7 +10,7 @@ Built with an ML pipeline + FastAPI backend + secure API access, this system is 
 
 ✅ Audio feature extraction (MFCC + spectral features)
 
-✅ Trained ML model (RandomForest)
+✅ Trained ML model (RandomForest Classifier)
 
 ✅ FastAPI REST endpoints
 
@@ -22,20 +22,29 @@ Built with an ML pipeline + FastAPI backend + secure API access, this system is 
 
 ✅ Lightweight and fast inference
 
+✅ Modular ML pipeline
+
 ✅ Easily extensible to deepfake detection
 
 🧠 ML Pipeline Overview
 
-Input: Audio file (WAV/MP3)
+Input: Audio file (WAV / MP3)
 
-Processing Pipeline:
+Processing Flow:
 
-Audio → Feature Extraction → Feature Vector → ML Model → Prediction → Confidence Score
+Audio File
+   ↓
+Feature Extraction
+   ↓
+Feature Vector
+   ↓
+ML Model
+   ↓
+Prediction + Confidence Score
 
+Extracted Audio Features
 
-Extracted Features include:
-
-MFCCs
+MFCCs (Mel-Frequency Cepstral Coefficients)
 
 Spectral centroid
 
@@ -48,7 +57,7 @@ Chroma features
 Energy features
 
 Model Used: RandomForest Classifier
-(Replace with your exact model details if different)
+(Replace with your exact model details if updated.)
 
 🏗️ Tech Stack
 
@@ -60,31 +69,31 @@ Scikit-learn
 
 Librosa
 
-NumPy / Pandas
+NumPy
+
+Pandas
 
 Uvicorn
 
-Render (deployment)
+Render (Deployment)
 
 📡 API Endpoints
-Health Check
+✅ Health Check
+
 GET /
-
-
-Response
 
 {
   "status": "ok",
   "service": "voice-ai-detector"
 }
 
-Predict Voice Type
-POST /predict
+🎯 Predict Voice Type
 
+POST /predict
 
 Headers
 
-x-api-key: ********
+x-api-key: YOUR_API_KEY
 Content-Type: multipart/form-data
 
 
@@ -105,22 +114,29 @@ Response
 
 This API uses API Key authentication.
 
-Add header:
+Include header in every prediction request:
 
-x-api-key: ********
+x-api-key: YOUR_API_KEY
 
 
-Keys are validated server-side before inference.
+Requests without valid keys are rejected before model inference.
 
 ⚙️ Local Setup
-1️⃣ Clone Repo
+1️⃣ Clone Repository
 git clone https://github.com/Shivang1109/voice-ai-detector.git
 cd voice-ai-detector
 
 2️⃣ Create Virtual Environment
+
+Mac / Linux
+
 python -m venv venv
-source venv/bin/activate   # mac/linux
-venv\Scripts\activate      # windows
+source venv/bin/activate
+
+
+Windows
+
+venv\Scripts\activate
 
 3️⃣ Install Dependencies
 pip install -r requirements.txt
@@ -128,44 +144,56 @@ pip install -r requirements.txt
 4️⃣ Run Server
 uvicorn app.main:app --reload
 
+
+Server runs at:
+
+http://127.0.0.1:8000
+
+
+Swagger Docs:
+
+http://127.0.0.1:8000/docs
+
 ☁️ Deployment
 
-The API is deployed on Render (or your platform).
+The API is production deployed on Render.
 
-Example:
+Live API Docs:
 
 https://voice-ai-detector-lh2e.onrender.com/docs
 
 
-Interactive Swagger docs available at /docs.
+Interactive Swagger UI available for live testing.
 
-📊 Model Training (Summary)
+📊 Model Training Summary
 
-Dataset: (add your dataset name)
+Dataset: (add dataset name here)
 
-Classes: Human / AI speech
+Classes: Human vs AI speech
 
-Training method: Supervised classification
+Training Type: Supervised classification
 
-Evaluation metric: Accuracy / F1 Score
+Feature Engineering: Audio signal processing features
 
-Feature engineering: Audio signal processing features
+Metrics: (add accuracy / F1 / precision / recall)
 
-(Add your real numbers here for credibility.)
+Add your real evaluation numbers here for technical credibility.
 
 🧪 Example Use Cases
 
-Voice deepfake detection
+Deepfake voice detection
 
-Scam call screening
+Scam & fraud call screening
 
 AI voice misuse prevention
 
 Media authenticity verification
 
-Voice KYC validation
+Voice-based KYC validation
 
 AI safety tooling
+
+Forensics & investigation support
 
 🔮 Future Improvements
 
@@ -173,15 +201,17 @@ Real-time streaming detection
 
 Deepfake voice fingerprinting
 
-Transformer / CNN audio models
+CNN / Transformer audio models
 
 Model explainability layer
 
 Web dashboard UI
 
-Multi-language voice robustness
+Multi-language robustness
 
 Adversarial audio testing
+
+Batch audio analysis endpoint
 
 👨‍💻 Author
 
